@@ -1,0 +1,23 @@
+my_database=# SELECT * FROM employees
+my_database-# WHERE first_name LIKE 'A%';
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  1 | Alice      | Smith     | HR         |  50000 | 2020-06-15
+(1 ёЄЁюър)
+
+
+my_database=# SELECT * FROM employees
+my_database-# WHERE last_name LIKE '%son%';
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  2 | Bob        | Johnson   | IT         |  70000 | 2019-08-23
+(1 ёЄЁюър)
+
+
+my_database=# SELECT * FROM employees
+my_database-# WHERE first_name LIKE '%e';
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  1 | Alice      | Smith     | HR         |  50000 | 2020-06-15
+  3 | Charlie    | Williams  | Finance    |  65000 | 2021-03-11
+(2 ёЄЁюъш)

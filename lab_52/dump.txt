@@ -1,0 +1,207 @@
+my_database=# SELECT * FROM customers;
+ customer_id | name  |      email
+-------------+-------+-----------------
+           1 | Alice | alice@email.com
+           2 | Bob   | bob@email.com
+           3 | John  | john@email.com
+           4 | Carol | carol@email.com
+(4 ёЄЁюъш)
+
+
+my_database=# SELECT * FROM orders;
+ order_id | customer_id | total_amount
+----------+-------------+--------------
+      101 |           1 |       250.00
+      102 |           2 |       120.00
+      103 |             |       300.00
+      104 |           5 |       180.00
+(4 ёЄЁюъш)
+
+
+my_database=#
+my_database=# SELECT * FROM departments;
+ dept_id | dept_name
+---------+-----------
+      10 | HR
+      20 | IT
+      30 | Finance
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT * FROM employees;
+ emp_id | name  | dept_id
+--------+-------+---------
+      1 | Alex  |      10
+      2 | Ben   |      20
+      3 | Clara |
+      4 | Diana |      40
+(4 ёЄЁюъш)
+
+
+my_database=#
+my_database=# SELECT * FROM students;
+ student_id | name
+------------+-------
+          1 | Emma
+          2 | David
+          3 | Lisa
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT * FROM courses;
+ course_id | course_name
+-----------+-------------
+       101 | Math
+       102 | Science
+       103 | History
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT * FROM enrollments;
+ enroll_id | student_id | course_id
+-----------+------------+-----------
+         1 |          1 |       101
+         2 |          2 |       102
+         3 |            |       103
+         4 |          3 |
+(4 ёЄЁюъш)
+my_database=# SELECT customers.name, orders.order_id, orders.total_amount
+my_database-# FROM customers
+my_database-# INNER JOIN orders ON customers.customer_id = orders.customer_id;
+ name  | order_id | total_amount
+-------+----------+--------------
+ Alice |      101 |       250.00
+ Bob   |      102 |       120.00
+(2 ёЄЁюъш)
+
+
+my_database=# SELECT employees.name, departments.dept_name
+my_database-# FROM employees
+my_database-# INNER JOIN departments ON employees.dept_id = departments.dept_id;
+ name | dept_name
+------+-----------
+ Alex | HR
+ Ben  | IT
+(2 ёЄЁюъш)
+
+
+my_database=# SELECT students.name, courses.course_name
+my_database-# FROM students
+my_database-# INNER JOIN enrollments ON students.student_id = enrollments.student_id
+my_database-# INNER JOIN courses ON enrollments.course_id = courses.course_id;
+ name  | course_name
+-------+-------------
+ Emma  | Math
+ David | Science
+(2 ёЄЁюъш)
+
+
+my_database=# SELECT customers.name, orders.order_id, orders.total_amount
+my_database-# FROM customers
+my_database-# LEFT JOIN orders ON customers.customer_id = orders.customer_id;
+ name  | order_id | total_amount
+-------+----------+--------------
+ Alice |      101 |       250.00
+ Bob   |      102 |       120.00
+ Carol |          |
+ John  |          |
+(4 ёЄЁюъш)
+
+
+my_database=# SELECT employees.name, departments.dept_name
+my_database-# FROM employees
+my_database-# LEFT JOIN departments ON employees.dept_id = departments.dept_id;
+ name  | dept_name
+-------+-----------
+ Alex  | HR
+ Ben   | IT
+ Clara |
+ Diana |
+(4 ёЄЁюъш)
+
+
+my_database=# SELECT students.name, courses.course_name
+my_database-# FROM students
+my_database-# LEFT JOIN enrollments ON students.student_id = enrollments.student_id
+my_database-# LEFT JOIN courses ON enrollments.course_id = courses.course_id;
+ name  | course_name
+-------+-------------
+ Emma  | Math
+ David | Science
+ Lisa  |
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT orders.order_id, orders.total_amount, customers.name
+my_database-# FROM customers
+my_database-# RIGHT JOIN orders ON customers.customer_id = orders.customer_id;
+ order_id | total_amount | name
+----------+--------------+-------
+      101 |       250.00 | Alice
+      102 |       120.00 | Bob
+      103 |       300.00 |
+      104 |       180.00 |
+(4 ёЄЁюъш)
+
+
+my_database=# SELECT employees.name, departments.dept_name
+my_database-# FROM employees
+my_database-# RIGHT JOIN departments ON employees.dept_id = departments.dept_id;
+ name | dept_name
+------+-----------
+ Alex | HR
+ Ben  | IT
+      | Finance
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT students.name, courses.course_name
+my_database-# FROM students
+my_database-# RIGHT JOIN enrollments ON students.student_id = enrollments.student_id
+my_database-# RIGHT JOIN courses ON enrollments.course_id = courses.course_id;
+ name  | course_name
+-------+-------------
+ Emma  | Math
+ David | Science
+       | History
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT customers.name, orders.order_id, orders.total_amount
+my_database-# FROM customers
+my_database-# FULL JOIN orders ON customers.customer_id = orders.customer_id;
+ name  | order_id | total_amount
+-------+----------+--------------
+ Alice |      101 |       250.00
+ Bob   |      102 |       120.00
+       |      103 |       300.00
+       |      104 |       180.00
+ Carol |          |
+ John  |          |
+(6 ёЄЁюъ)
+
+
+my_database=# SELECT employees.name, employees.dept_id, departments.dept_name
+my_database-# FROM employees
+my_database-# FULL JOIN departments ON employees.dept_id = departments.dept_id;
+ name  | dept_id | dept_name
+-------+---------+-----------
+ Alex  |      10 | HR
+ Ben   |      20 | IT
+ Clara |         |
+ Diana |      40 |
+       |         | Finance
+(5 ёЄЁюъ)
+
+
+my_database=# SELECT students.name, courses.course_name
+my_database-# FROM students
+my_database-# FULL JOIN enrollments ON students.student_id = enrollments.student_id
+my_database-# FULL JOIN courses ON enrollments.course_id = courses.course_id;
+ name  | course_name
+-------+-------------
+ Emma  | Math
+ David | Science
+       | History
+ Lisa  |
+(4 ёЄЁюъш)

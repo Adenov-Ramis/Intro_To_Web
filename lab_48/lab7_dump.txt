@@ -1,0 +1,13 @@
+my_database=# CREATE TABLE products (
+my_database(#     product_id SERIAL PRIMARY KEY,
+my_database(#     name TEXT NOT NULL,
+my_database(#     price DECIMAL(10, 2) NOT NULL,
+my_database(#     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+my_database(# );
+CREATE TABLE
+my_database=# ALTER TABLE products ALTER COLUMN price TYPE INTEGER;
+ALTER TABLE
+my_database=# SELECT price FROM products;
+ price
+-------
+(0 ёЄЁюъ)

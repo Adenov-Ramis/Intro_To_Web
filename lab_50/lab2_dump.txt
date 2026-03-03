@@ -1,0 +1,28 @@
+my_database=# SELECT * FROM employees
+my_database-# WHERE salary > 60000;
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  2 | Bob        | Johnson   | IT         |  70000 | 2019-08-23
+  3 | Charlie    | Williams  | Finance    |  65000 | 2021-03-11
+  4 | David      | Brown     | IT         |  72000 | 2018-09-30
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT * FROM employees
+my_database-# WHERE hire_date > '2020-01-01';
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  1 | Alice      | Smith     | HR         |  50000 | 2020-06-15
+  3 | Charlie    | Williams  | Finance    |  65000 | 2021-03-11
+  5 | Emma       | Davis     | HR         |  48000 | 2022-01-05
+(3 ёЄЁюъш)
+
+
+my_database=# SELECT * FROM employees
+my_database-# WHERE department IN ('HR', 'Finance');
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  1 | Alice      | Smith     | HR         |  50000 | 2020-06-15
+  3 | Charlie    | Williams  | Finance    |  65000 | 2021-03-11
+  5 | Emma       | Davis     | HR         |  48000 | 2022-01-05
+(3 ёЄЁюъш)

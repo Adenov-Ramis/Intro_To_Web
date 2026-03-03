@@ -1,0 +1,7 @@
+my_database=# DROP TABLE IF EXISTS products;
+DROP TABLE
+my_database=# SELECT * FROM products;
+ОШИБКА:  отношение "products" не существует
+СТРОКА 1: SELECT * FROM products;
+                        ^
+my_database=#

@@ -1,0 +1,59 @@
+(.venv) PS C:\Users\simar\PycharmProjects\web-dev-auca> psql -U postgres
+>>
+psql (16.10)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# \l
+                                                                    ╤яшёюъ срч фрээ√ї
+       ╚ь        | ┬ырфхыхЎ | ╩юфшЁютър | ╧ЁютрщфхЁ ыюърыш |     LC_COLLATE      |      LC_CTYPE       | ыюъры№ ICU | ╧Ёртшыр ICU |     ╧Ёртр фюёЄєяр
+-----------------+----------+-----------+------------------+---------------------+---------------------+------------+-------------+-----------------------
+ fitness_club_db | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             |
+ movie_streaming | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             |
+ postgres        | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             |
+ template0       | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             | =c/postgres          +
+                 |          |           |                  |                     |                     |            |             | postgres=CTc/postgres
+ template1       | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             | =c/postgres          +
+                 |          |           |                  |                     |                     |            |             | postgres=CTc/postgres
+(5 ёЄЁюъ)
+
+
+postgres=# CREATE DATABASE my_database;
+CREATE DATABASE
+postgres=# \l
+                                                                    ╤яшёюъ срч фрээ√ї
+       ╚ь        | ┬ырфхыхЎ | ╩юфшЁютър | ╧ЁютрщфхЁ ыюърыш |     LC_COLLATE      |      LC_CTYPE       | ыюъры№ ICU | ╧Ёртшыр ICU |     ╧Ёртр фюёЄєяр
+-----------------+----------+-----------+------------------+---------------------+---------------------+------------+-------------+-----------------------
+ fitness_club_db | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             |
+ movie_streaming | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             |
+ my_database     | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             |
+ postgres        | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             |
+ template0       | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             | =c/postgres          +
+                 |          |           |                  |                     |                     |            |             | postgres=CTc/postgres
+ template1       | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |            |             | =c/postgres          +
+                 |          |           |                  |                     |                     |            |             | postgres=CTc/postgres
+(6 ёЄЁюъ)
+
+
+postgres=# CREATE USER my_user WITH ENCRYPTED PASSWORD 'my_secure_password';
+CREATE ROLE
+postgres=# GRANT ALL PRIVILEGES ON DATABASE my_database TO my_user;
+GRANT
+postgres=# \c my_database
+Вы подключены к базе данных "my_database" как пользователь "postgres".
+my_database=# CREATE TABLE users (
+my_database(# id SERIAL PRIMARY KEY,
+my_database(# name VARCHAR(50),
+my_database(# email VARCHAR(100) UNIQUE);
+CREATE TABLE
+my_database=# INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com');
+INSERT 0 1
+my_database=# SELECT * FROM users;
+ id | name  |       email
+----+-------+-------------------
+  1 | Alice | alice@example.com
+(1 ёЄЁюър)

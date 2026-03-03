@@ -1,0 +1,35 @@
+my_database=# CREATE TABLE products (
+my_database(#     product_id SERIAL PRIMARY KEY,
+my_database(#     product_name TEXT NOT NULL,
+my_database(#     price NUMERIC(10,2) NOT NULL,
+my_database(#     stock_quantity INTEGER NOT NULL,
+my_database(#     discontinued BOOLEAN DEFAULT FALSE
+my_database(# );
+CREATE TABLE
+my_database=#
+my_database=# INSERT INTO products (product_name, price, stock_quantity) VALUES
+my_database-# ('Laptop', 999.99, 10),
+my_database-# ('Smartphone', 599.99, 20),
+my_database-# ('Headphones', 199.99, 15);
+INSERT 0 3
+my_database=#
+my_database=# UPDATE products
+my_database-# SET price = 1099.99
+my_database-# WHERE product_name = 'Laptop';
+UPDATE 1
+my_database=#
+my_database=# UPDATE products
+my_database-# SET discontinued = TRUE
+my_database-# WHERE product_name = 'Headphones';
+UPDATE 1
+my_database=#
+my_database=# DELETE FROM products
+my_database-# WHERE discontinued = TRUE;
+DELETE 1
+my_database=#
+my_database=# SELECT * FROM products;
+ product_id | product_name |  price  | stock_quantity | discontinued
+------------+--------------+---------+----------------+--------------
+          2 | Smartphone   |  599.99 |             20 | f
+          1 | Laptop       | 1099.99 |             10 | f
+(2 ёЄЁюъш)

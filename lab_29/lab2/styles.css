@@ -1,0 +1,52 @@
+.box {
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.linear-right {
+    background: linear-gradient(to right, red, blue);
+}
+
+.linear-left {
+    background: linear-gradient(to left, red, blue);
+}
+
+.linear-bottom {
+    background: linear-gradient(to bottom, red, blue);
+}
+
+.linear-diagonal {
+    background: linear-gradient(45deg, red, blue);
+}
+
+.linear-stops {
+    background: linear-gradient(to right, red 0%, orange 30%, yellow 60%, green 100%);
+}
+
+.linear-hard-split {
+    background: linear-gradient(to right, red 50%, blue 50%);
+}
+
+.radial-default {
+    background: radial-gradient(circle, yellow, green);
+    color: black;
+}
+
+.radial-ellipse {
+    background: radial-gradient(ellipse, yellow, green);
+    color: black;
+}
+
+.radial-offset {
+    background: radial-gradient(circle at top left, yellow, green);
+    color: black;
+}
+
+.radial-stops {
+    background: radial-gradient(circle, yellow 20%, orange 50%, red 100%);
+}

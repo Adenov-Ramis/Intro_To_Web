@@ -1,0 +1,22 @@
+my_database=# CREATE TABLE users (
+my_database(#     user_id SERIAL PRIMARY KEY,
+my_database(#     name TEXT NOT NULL,
+my_database(#     email TEXT UNIQUE NOT NULL,
+my_database(#     age INTEGER,
+my_database(#     registration_date DATE DEFAULT CURRENT_DATE
+my_database(# );
+CREATE TABLE
+my_database=#
+my_database=# INSERT INTO users (name, email, age) VALUES
+my_database-# ('Alice Johnson', 'alice@example.com', 28),
+my_database-# ('Bob Smith', 'bob@example.com', 32),
+my_database-# ('Charlie Brown', 'charlie@example.com', 25);
+INSERT 0 3
+my_database=#
+my_database=# SELECT * FROM users;
+ user_id |     name      |        email        | age | registration_date
+---------+---------------+---------------------+-----+-------------------
+       1 | Alice Johnson | alice@example.com   |  28 | 2026-02-05
+       2 | Bob Smith     | bob@example.com     |  32 | 2026-02-05
+       3 | Charlie Brown | charlie@example.com |  25 | 2026-02-05
+(3 ёЄЁюъш)

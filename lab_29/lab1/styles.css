@@ -1,0 +1,10 @@
+.background-box {
+    width: 400px;
+    height: 200px;
+    background-image: url("example.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 200px;
+}

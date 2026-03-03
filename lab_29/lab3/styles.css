@@ -1,0 +1,36 @@
+.solid-border {
+    width: 200px;
+    height: 100px;
+    border: 3px solid black;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 20px;
+}
+
+.dashed-border {
+    width: 200px;
+    height: 100px;
+    border: 3px dashed red;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 20px;
+}
+
+.rounded-border {
+    width: 200px;
+    height: 100px;
+    border: 3px solid blue;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 20px;
+}
+
+.circle-border {
+    width: 150px;
+    height: 150px;
+    border: 3px solid green;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+}

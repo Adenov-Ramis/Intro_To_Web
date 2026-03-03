@@ -1,0 +1,10 @@
+my_database=# DELETE FROM users
+my_database-# WHERE age > 30;
+DELETE 0
+my_database=#
+my_database=# SELECT * FROM users;
+ user_id |     name      |           email           | age | registration_date
+---------+---------------+---------------------------+-----+-------------------
+       1 | Alice Johnson | alice@example.com         |  29 | 2026-02-05
+       3 | Charlie Brown | charlie.brown@example.com |  25 | 2026-02-05
+(2 ёЄЁюъш)

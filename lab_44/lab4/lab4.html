@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+
+    <style>
+        li {
+            display: flex;
+            justify-content: space-between;
+            width: 250px;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+        li.completed span {
+            text-decoration: line-through;
+            color: gray;
+        }
+        button.delete {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        span {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <input id="taskInput" type="text" placeholder="Enter task" />
+    <button id="addTaskBtn">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const input = document.getElementById("taskInput");
+        const btn = document.getElementById("addTaskBtn");
+        const list = document.getElementById("taskList");
+
+        const loadTasks = () => {
+            const saved = JSON.parse(localStorage.getItem("tasks") || "[]");
+            saved.forEach(t => addTaskToDOM(t.text, t.completed));
+        };
+
+        const saveTasks = () => {
+            const tasks = [];
+            document.querySelectorAll("#taskList li").forEach(li => {
+                tasks.push({
+                    text: li.querySelector("span").textContent,
+                    completed: li.classList.contains("completed")
+                });
+            });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        };
+
+        const addTaskToDOM = (text, completed = false) => {
+            const li = document.createElement("li");
+            const span = document.createElement("span");
+            const del = document.createElement("button");
+
+            span.textContent = text;
+            del.textContent = "X";
+            del.className = "delete";
+
+            if (completed) li.classList.add("completed");
+
+            span.addEventListener("click", () => {
+                li.classList.toggle("completed");
+                saveTasks();
+            });
+
+            del.addEventListener("click", () => {
+                li.remove();
+                saveTasks();
+            });
+
+            li.appendChild(span);
+            li.appendChild(del);
+            list.appendChild(li);
+        };
+
+        btn.addEventListener("click", () => {
+            const text = input.value.trim();
+            if (!text) return;
+
+            addTaskToDOM(text);
+            input.value = "";
+            saveTasks();
+        });
+
+        loadTasks();
+    </script>
+</body>
+</html>

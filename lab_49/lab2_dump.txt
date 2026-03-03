@@ -1,0 +1,17 @@
+my_database=# UPDATE users
+my_database-# SET age = 29
+my_database-# WHERE name = 'Alice Johnson';
+UPDATE 1
+my_database=#
+my_database=# UPDATE users
+my_database-# SET email = 'charlie.brown@example.com'
+my_database-# WHERE name = 'Charlie Brown';
+UPDATE 1
+my_database=#
+my_database=# SELECT * FROM users;
+ user_id |     name      |           email           | age | registration_date
+---------+---------------+---------------------------+-----+-------------------
+       2 | Bob Smith     | bob@example.com           |  32 | 2026-02-05
+       1 | Alice Johnson | alice@example.com         |  29 | 2026-02-05
+       3 | Charlie Brown | charlie.brown@example.com |  25 | 2026-02-05
+(3 ёЄЁюъш)

@@ -1,0 +1,46 @@
+my_database=# CREATE TABLE employees (
+my_database(#     id SERIAL PRIMARY KEY,
+my_database(#     first_name TEXT,
+my_database(#     last_name TEXT,
+my_database(#     department TEXT,
+my_database(#     salary INTEGER,
+my_database(#     hire_date DATE
+my_database(# );
+CREATE TABLE
+my_database=#
+my_database=# INSERT INTO employees (first_name, last_name, department, salary, hire_date) VALUES
+my_database-# ('Alice', 'Smith', 'HR', 50000, '2020-06-15'),
+my_database-# ('Bob', 'Johnson', 'IT', 70000, '2019-08-23'),
+my_database-# ('Charlie', 'Williams', 'Finance', 65000, '2021-03-11'),
+my_database-# ('David', 'Brown', 'IT', 72000, '2018-09-30'),
+my_database-# ('Emma', 'Davis', 'HR', 48000, '2022-01-05');
+INSERT 0 5
+my_database=# SELECT * FROM employees;
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  1 | Alice      | Smith     | HR         |  50000 | 2020-06-15
+  2 | Bob        | Johnson   | IT         |  70000 | 2019-08-23
+  3 | Charlie    | Williams  | Finance    |  65000 | 2021-03-11
+  4 | David      | Brown     | IT         |  72000 | 2018-09-30
+  5 | Emma       | Davis     | HR         |  48000 | 2022-01-05
+(5 ёЄЁюъ)
+
+
+my_database=# SELECT first_name, salary FROM employees;
+ first_name | salary
+------------+--------
+ Alice      |  50000
+ Bob        |  70000
+ Charlie    |  65000
+ David      |  72000
+ Emma       |  48000
+(5 ёЄЁюъ)
+
+
+my_database=# SELECT * FROM employees
+my_database-# WHERE department = 'IT';
+ id | first_name | last_name | department | salary | hire_date
+----+------------+-----------+------------+--------+------------
+  2 | Bob        | Johnson   | IT         |  70000 | 2019-08-23
+  4 | David      | Brown     | IT         |  72000 | 2018-09-30
+(2 ёЄЁюъш)

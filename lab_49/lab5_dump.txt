@@ -1,0 +1,26 @@
+my_database=# BEGIN;
+BEGIN
+my_database=*#
+my_database=*# INSERT INTO users (name, email, age) VALUES
+my_database-*# ('David Green', 'david@example.com', 40);
+INSERT 0 1
+my_database=*#
+my_database=*# UPDATE users
+my_database-*# SET age = 35
+my_database-*# WHERE name = 'Alice Johnson';
+UPDATE 1
+my_database=*#
+my_database=*# DELETE FROM users
+my_database-*# WHERE name = 'Charlie Brown';
+DELETE 1
+my_database=*#
+my_database=*# ROLLBACK;
+ROLLBACK
+my_database=#
+my_database=# SELECT * FROM users;
+ user_id |     name      |           email           | age | registration_date
+---------+---------------+---------------------------+-----+-------------------
+       1 | Alice Johnson | alice@example.com         |  29 | 2026-02-05
+       3 | Charlie Brown | charlie.brown@example.com |  25 | 2026-02-05
+(2 ёЄЁюъш)
+

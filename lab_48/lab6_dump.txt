@@ -1,0 +1,6 @@
+my_database=# ALTER TABLE users RENAME COLUMN full_name TO name;
+ALTER TABLE
+my_database=# SELECT name FROM users;
+ name
+------
+(0 ёЄЁюъ)

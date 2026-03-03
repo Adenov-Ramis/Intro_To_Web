@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task List</title>
+
+    <style>
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 280px;
+            margin-bottom: 6px;
+        }
+        li.completed span {
+            text-decoration: line-through;
+            color: gray;
+        }
+        button {
+            margin-left: 6px;
+            cursor: pointer;
+        }
+        span {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        input.edit-input {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <input id="taskInput" type="text" placeholder="Enter task" />
+    <button id="addTaskBtn">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const input = document.getElementById("taskInput");
+        const btn = document.getElementById("addTaskBtn");
+        const list = document.getElementById("taskList");
+
+        const loadTasks = () => {
+            const saved = JSON.parse(localStorage.getItem("tasks") || "[]");
+            saved.forEach(t => addTaskToDOM(t.text, t.completed));
+        };
+
+        const saveTasks = () => {
+            const tasks = [];
+            document.querySelectorAll("#taskList li").forEach(li => {
+                tasks.push({
+                    text: li.querySelector("span").textContent,
+                    completed: li.classList.contains("completed")
+                });
+            });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        };
+
+        const addTaskToDOM = (text, completed = false) => {
+            const li = document.createElement("li");
+            const span = document.createElement("span");
+            const del = document.createElement("button");
+            const edit = document.createElement("button");
+
+            span.textContent = text;
+            del.textContent = "X";
+            edit.textContent = "Edit";
+
+            if (completed) li.classList.add("completed");
+
+            span.addEventListener("click", () => {
+                li.classList.toggle("completed");
+                saveTasks();
+            });
+
+            del.addEventListener("click", () => {
+                li.remove();
+                saveTasks();
+            });
+
+            edit.addEventListener("click", () => {
+                const currentText = span.textContent;
+                const inputField = document.createElement("input");
+                inputField.type = "text";
+                inputField.value = currentText;
+                inputField.className = "edit-input";
+                li.replaceChild(inputField, span);
+                inputField.focus();
+
+                inputField.addEventListener("keydown", e => {
+                    if (e.key === "Enter") {
+                        span.textContent = inputField.value.trim() || currentText;
+                        li.replaceChild(span, inputField);
+                        saveTasks();
+                    }
+                });
+            });
+
+            li.appendChild(span);
+            li.appendChild(edit);
+            li.appendChild(del);
+            list.appendChild(li);
+        };
+
+        btn.addEventListener("click", () => {
+            const text = input.value.trim();
+            if (!text) return;
+            addTaskToDOM(text);
+            input.value = "";
+            saveTasks();
+        });
+
+        loadTasks();
+    </script>
+</body>
+</html>

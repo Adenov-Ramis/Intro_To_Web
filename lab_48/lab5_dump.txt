@@ -1,0 +1,6 @@
+my_database=# ALTER TABLE users DROP COLUMN phone_number;
+ALTER TABLE
+my_database=# SELECT phone_number FROM users;
+ОШИБКА:  столбец "phone_number" не существует
+СТРОКА 1: SELECT phone_number FROM users;
+                 ^

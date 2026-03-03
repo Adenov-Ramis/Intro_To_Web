@@ -1,0 +1,6 @@
+my_database=# ALTER TABLE users ADD COLUMN phone_number VARCHAR(20);
+ALTER TABLE
+my_database=# SELECT phone_number FROM users;
+ phone_number
+--------------
+(0 ёЄЁюъ)
